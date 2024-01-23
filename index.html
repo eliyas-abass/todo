@@ -15,6 +15,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -26,7 +27,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo</title>
@@ -41,15 +42,13 @@
       </header>
 
       <div class="row mt-4">
-        <div class="col">
-          <form>
+        <div class="col d-flex">
+          <form class="search-form flex-grow-1">
             <div class="form-group">
-              <input type="text" class="form-control" />
+              <input type="text" class="form-control" placeholder="Search" />
             </div>
           </form>
-        </div>
 
-        <div class="col">
           <div class="dropdown">
             <button
               class="btn btn-secondary dropdown-toggle"
@@ -70,58 +69,32 @@
 
       <div class="row">
         <div class="col d-flex justify-content-between">
-          <button type="button" class="btn btn-primary">My Task</button>
-          <button type="button" class="btn btn-secondary">Categories</button>
+          <h3 class="text-body-bold">My Task</h3>
+          <div>
+            <button class="btn btn-light">
+              <i class="ri-list-unordered"></i>
+            </button>
+            <button class="btn btn-light">
+              <i class="ri-layout-grid-line"></i>
+            </button>
+          </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col">
-          <div class="card todo-card mt-2">
-            <div class="card-body">
-              <div class="d-flex">
-                <div class="form-group form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="exampleCheck1"
-                  />
-                </div>
-
-                <div class="flex-grow-1">
-                  <p class="card-text ellipsis-text">I'm going</p>
-                  <div class="text-sm-regular my-2">
-                    <i class="ri-time-line"></i>
-                    <span> Remind me on 21.01.23 on 10:00a.m </span>
-                  </div>
-
-                  <p class="text-sm-regular m-0">category: work</p>
-                </div>
-
-                <section class="icon">
-                  <i class="ri-delete-bin-6-line"></i>
-                  <i class="ri-edit-2-line"></i>
-                </section>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div id="pendingTaskContainer">
+        <a
+          href="add.html"
+          class="add-tasks-button btn btn-primary"
+          id="add-tasks-button"
+        >
+          <i class="ri-add-fill"></i>
+        </a>
       </div>
       <div class="row">
         <div class="col">
           <p>Task Completed</p>
 
-          <div class="card text-body-regular">
-            <div class="card-c-body">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="defaultCheck1"
-              />
-              <p class="card-text">GMSA</p>
-            </div>
-          </div>
+          <div id="completedTaskContainer"></div>
         </div>
       </div>
     </section>
